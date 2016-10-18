@@ -1,13 +1,19 @@
-#Project Title
+#Title
+
+#Objective
 
 #Getting Started
 
-#Prerequisites
-
 #Built With
 
-#Versioning
+#Inspiration
+
+#Prerequisites
+
+#Version
 
 #Author
 
-#Acknowledgments
+#Credits
+
+#Contact
