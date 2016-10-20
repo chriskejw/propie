@@ -1,27 +1,38 @@
+// set up and get all the tools we need ========================================
 var express = require('express')
 var app = express()
+var port = process.env.PORT || 3000;
 var layout = require('express-ejs-layouts')
 var bodyParser = require('body-parser')
-  // connect to mongoose
+var flash = require('connect-flash');
+var session = require('express-session');
+var passport = require('passport');
+var dotenv = require('dotenv')
 var mongoose = require('mongoose')
+
+// configuration ===============================================================
 mongoose.Promise = global.Promise
-  // have to edit this!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if (process.env.NODE_ENV === 'production') {
-  mongoose.connect('mongodb://USERNAME:PASSWORD@ds061318.mlab.com:061318/DATABASENAME')
+  mongoose.connect('mongodb://USERNAME:PASSWORD@ds061318.mlab.com:061318/DATABASENAME') // connect to our database
 } else {
-  mongoose.connect('mongodb://localhost/foodie')
+  mongoose.connect('mongodb://localhost/propie') // connect to local
 }
+// Load environment variables from .env file, where API keys and passwords are configured.
+dotenv.load({
+  path: '.env.' + process.env.NODE_ENV
+})
 
-app.set('view engine', 'ejs')
-app.use(layout)
-  // serve static files
-app.use(express.static(__dirname + '/public'))
-  // to parse ajax json req
-app.use(bodyParser.json())
-  // to parse form submitted data
-app.use(bodyParser.urlencoded({
-  extended: true
-}))
+app.set('view engine', 'ejs') // set up ejs for templating
+app.use(layout) // ???
+app.use(express.static(__dirname + '/public')) // serve static files
+app.use(bodyParser.json()) // get information from html forms
+app.use(bodyParser.urlencoded({ // to parse form submitted data
+    extended: true
+  }))
+app.use(passport.initialize()) // ???
+app.use(passport.session()) // persistent login sessions
+app.use(flash()) // use connect-flash for flash messages stored in session
 
-app.listen(process.env.PORT || 33000)
-console.log('Server started')
+// launch ======================================================================
+app.listen(port)
+console.log('Server started on port ' + port)
