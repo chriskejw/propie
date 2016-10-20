@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   mongoose.connect('mongodb://localhost/propie') // connect to local
 }
-// Load environment variables from .env file, where API keys and passwords are configured.
+// load environment variables from .env file, where API keys and passwords are configured.
 dotenv.load({
   path: '.env.' + process.env.NODE_ENV
 })
@@ -36,3 +36,14 @@ app.use(flash()) // use connect-flash for flash messages stored in session
 // launch ======================================================================
 app.listen(port)
 console.log('Server started on port ' + port)
+
+// routes ======================================================================
+var frontendRoutes = require('./routes/index')
+var ajaxRoutes = require('./routes/index_api')
+var usersRoutes = require('./routes/user')
+var usersAPIRoutes = require('./routes/user_api')
+
+app.use('/', frontendRoutes) // only render ejs files
+app.use('/api/index', ajaxRoutes) // only handle ajax request
+app.use('/', usersRoutes) // only render ejs files
+app.use('/api/users', usersAPIRoutes) // only handle ajax request
