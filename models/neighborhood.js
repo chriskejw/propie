@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 
-var neighborhoodSchema = new neighborhood.Schema({
-  name: String,
+var neighborhoodSchema = new mongoose.Schema({
+  neighborhood: String,
   district: Number,
 })
 

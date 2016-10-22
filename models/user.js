@@ -4,7 +4,7 @@ var bcrypt = require('bcrypt')
 
 var userSchema = new mongoose.Schema({
   local: {
-    username: String,
+    name: String,
     email: String,
     password: String
   }
@@ -24,7 +24,7 @@ userSchema.pre('save', function (next) {
   })
 })
 
-userSchema.methods.authenticate = function (givenPassword, callback) {
+userSchema.methods.auth = function (givenPassword, callback) {
   console.log('given password is ' + givenPassword)
   console.log('saved password is ' + this.local.password)
   var hashedPassword = this.local.password

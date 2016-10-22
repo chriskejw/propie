@@ -7,8 +7,10 @@ var bodyParser = require('body-parser')
 var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
+var MongoStore = require('connect-mongo')(session)
 var dotenv = require('dotenv')
 var mongoose = require('mongoose')
+var morgan = require('morgan')
 
 // configuration ===============================================================
 mongoose.Promise = global.Promise
@@ -23,27 +25,40 @@ dotenv.load({
 })
 
 app.set('view engine', 'ejs') // set up ejs for templating
-app.use(layout) // ???
+app.use(layout) //
 app.use(express.static(__dirname + '/public')) // serve static files
 app.use(bodyParser.json()) // get information from html forms
 app.use(bodyParser.urlencoded({ // to parse form submitted data
     extended: true
   }))
-app.use(passport.initialize()) // ???
+app.use(passport.initialize()) // set up passport
 app.use(passport.session()) // persistent login sessions
 app.use(flash()) // use connect-flash for flash messages stored in session
+app.use(morgan('dev')) // ???
+app.use(session({
+  secret: process.env.EXPRESS_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({
+    url: process.env.MONGO_URI,
+    autoReconnect: true
+  })
+}))
 
 // launch ======================================================================
 app.listen(port)
 console.log('Server started on port ' + port)
 
 // routes ======================================================================
-var frontendRoutes = require('./routes/index')
-var ajaxRoutes = require('./routes/index_api')
-var usersRoutes = require('./routes/user')
-var usersAPIRoutes = require('./routes/user_api')
+// var frontendRoutes = require('./routes/listings') // go to index in routes folder
+// var ajaxRoutes = require('./routes/listings_api') // go to index_api in routes folder
+// var usersRoutes = require('./routes/users') // go to users in routes folder
+// var usersAPIRoutes = require('./routes/users_api') // go to users_api in routes folder
 
-app.use('/', frontendRoutes) // only render ejs files
-app.use('/api/index', ajaxRoutes) // only handle ajax request
-app.use('/', usersRoutes) // only render ejs files
-app.use('/api/users', usersAPIRoutes) // only handle ajax request
+// tells express to use the middlewares
+// app.use('/listings', frontendRoutes) // connect localhost:xxxx/ to index in routes folder
+// app.use('/api/listings', ajaxRoutes) // connect localhost:xxxx/api/index to index in routes folder
+// app.use('/users', usersRoutes) // connect localhost:xxx/ to users in routes folder
+// app.use('/api/users', usersAPIRoutes) // connect localhost:xxx/api/users to user_api in routes folder
+
+// =======================================================

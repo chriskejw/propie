@@ -1,0 +1,27 @@
+<h1>Start your login here</h1>
+<h1>Start your login here</h1>
+<h1>Start your login here</h1>
+<h1>Start your login here</h1>
+<h1>Start your login here</h1>
+<h1>Start your login here</h1>
+<h1>Start your login here</h1>
+<h1>Start your login here</h1>
+
+<%# <form class="login-user" action="/users/login" method="post">
+  <div class="row">
+    <div class="six columns">
+      <input type="text" name="user[local][email]" placeholder="Your email" class="u-full-width">
+    </div>
+    <div class="six columns">
+      <input type="text" name="user[local][password]" placeholder="Your password" class="u-full-width">
+    </div>
+    <input type="submit" value='Log in'>
+  </div>
+</form>%>
+
+<% if(message.length > 0) { %>
+  <h2>FLASH FOUND</h2>
+  <div class="alert alert-danger">
+    <%= message %>
+  </div>
+<% } %>
