@@ -12,15 +12,52 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="aa-single-advance-search">
-                      <input type="text" placeholder="Type the Location">
+                      <input type="text" placeholder="Location">
                     </div>
                   </div>
                   <div class="col-md-2">
                     <div class="aa-single-advance-search">
                       <select>
-               <option value="0" selected>Sale</option>
-                <option value="1">Rent</option>
-              </select>
+                        <option value="0" selected>All District</option>
+                        <option value="1">District 01 - Raffles Place, Marina, Cecil</option>
+                        <option value="2">District 02 - Tanjong Pagar, Chinatown</option>
+                        <option value="3">District 03 - Tiong Bahru, Alexandra, Queenstown</option>
+                        <option value="4">District 04 - Mount Faber, Telok Blangah, Harbourfront</option>
+                        <option value="5">District 05 - Buona Vista, Pasir Panjang, Clementi</option>
+                        <option value="6">District 06 - Clarke Quay, City Hall</option>
+                        <option value="7">District 07 - Bugis, Beach Road, Golden Mile</option>
+                        <option value="8">District 08 - Little India, Farrer Park</option>
+                        <option value="9">District 09 - Orchard Road, River Valley</option>
+                        <option value="10">District 10 - Bukit Timah, Holland, Balmoral</option>
+                        <option value="11">District 11 - Novena, Newton, Thomson</option>
+                        <option value="12">District 12 - Toa Payoh, Serangoon, Balestier</option>
+                        <option value="13">District 13 - Macpherson, Braddell
+                        </option>
+                        <option value="14">District 14 - Geylang, Paya Lebar, Sims</option>
+                        <option value="15">District 15 - Joo Chiat, Marina Parade, Katong</option>
+                        <option value="16">District 16 - Bedok, Upper East Coast, Siglap</option>
+                        <option value="17">District 17 - Changi, Flora, Loyang</option>
+                        <option value="18">District 18 - Tampines, Pasir Ris</option>
+                        <option value="19">District 19 - Punggol, Sengkang, Serangoon Gardens</option>
+                        <option value="20">District 20 - Ang Mo Kio, Bishan, Thomson</option>
+                        <option value="21">District 21 - Upper Bukit Timah, Ulu Pandan, Clementi Park</option>
+                        <option value="22">District 22 - Boon Lay, Jurong, Tuas</option>
+                        <option value="23">District 23 - Choa Chu Kang, Diary Farm, Hillview, Bukit Panjang, Bukit Batok</option>
+                        <option value="24">District 24 - Kranji, Lim Chu Kang, Tengah</option>
+                        <option value="25">District 25 - Woodlands, Admiralty</option>
+                        <option value="26">District 26 - Upper Thomson, Mandai
+                        </option>
+                        <option value="27">District 27 - Sembawang, Yishun, Admiralty</option>
+                        <option value="28">District 28 - Yio Chu Kang, Seletar</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="aa-single-advance-search">
+                      <select>
+                        <option value="0" selected>Sale</option>
+                        <option value="1">Rent</option>
+                      </select>
                     </div>
                   </div>
                   <div class="col-md-2">
@@ -30,18 +67,6 @@
                 <option value="1">Landed</option>
                 <option value="2">Condo</option>
                 <option value="3">HDB</option>
-              </select>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="aa-single-advance-search">
-                      <select>
-                <option value="0" selected>Bedrooms</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5+</option>
               </select>
                     </div>
                   </div>
@@ -61,6 +86,48 @@
                       <input type="text" placeholder="Max. Price ($)">
                     </div>
                   </div>
+                  <div class="col-md-2">
+                    <div class="aa-single-advance-search">
+                      <input type="text" placeholder="Size (sqft)">
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="aa-single-advance-search">
+                      <select>
+                        <option value="0" selected>Tenure</option>
+                        <option value="1">Freehold</option>
+                        <option value="2">999-year Leasehold</option>
+                        <option value="3">103-year Leasehold</option>
+                        <option value="4">99-year Leasehold</option>
+                        <option value="5">Unknown Tenure</option>
+                      </select>
+                    </div>
+                  </div>
+                <div class="col-md-2">
+                  <div class="aa-single-advance-search">
+                    <select>
+                      <option value="0" selected>Bedrooms</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5+</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="aa-single-advance-search">
+                    <select>
+                      <option value="0" selected>Bathrooms</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5+</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
                 </div>
               </div>
             </div>
@@ -74,7 +141,7 @@
 
 <ul id="all-user-list">
 <% allUsers.forEach(function(user) { %>
-  <li>
+  <%# <li>%>
       <%= user.local.name %><br>
       <%= user.local.email %><br>
       <%= user.local.password %>
@@ -155,7 +222,7 @@
                 <img src="img/item/3.jpg" alt="img">
               </a>
               <div class="aa-tag sold-out">
-                Sold Out
+                Sold
               </div>
               <div class="aa-properties-item-content">
                 <div class="aa-properties-info">
@@ -211,7 +278,7 @@
                 <img src="img/item/5.jpg" alt="img">
               </a>
               <div class="aa-tag sold-out">
-                Sold Out
+                Sold
               </div>
               <div class="aa-properties-item-content">
                 <div class="aa-properties-info">

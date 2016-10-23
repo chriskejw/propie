@@ -34,6 +34,31 @@ nav {
 }
 
 /*==================
+  PROFILE SECTION
+====================*/
+
+.containerPosting {
+  position: relative;
+}
+
+.profileLeft {
+  position: relative;
+  width: 300px;
+  float: left;
+}
+
+.span8 {
+  text-align: center;
+}
+
+.userPosting {
+  position: relative;
+  margin-top: 0px;
+  margin-left: 400px;
+  margin-right: 100px;
+}
+
+/*==================
  ADVANCE SEARCH SECTION
 ====================*/
 .aa-search-btn {

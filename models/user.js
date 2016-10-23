@@ -4,9 +4,33 @@ var bcrypt = require('bcrypt')
 
 var userSchema = new mongoose.Schema({
   local: {
-    name: String,
-    email: String,
-    password: String
+
+    name: {
+      type: String,
+      required: true
+    },
+
+    email: {
+      type: String,
+      lowercase: true,
+      required: true
+    },
+
+    password: {
+      type: String,
+      required: true
+    },
+
+    listing_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Listing'
+    },
+
+    dateRegistered: {
+      type: Date,
+      default: Date.now
+    }
+
   }
 })
 
