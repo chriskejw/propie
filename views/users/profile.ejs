@@ -11,7 +11,7 @@
 
               <div class="span8">
                   <h3>Username</h3>
-                  <h6>Email:XXX</h6>
+                  <h6>Email: <%= %></h6>
               </div>
 
               <div class="span8">
@@ -26,9 +26,11 @@
                       </ul>
                 </div>
             </div>
+
           <div class="logout">
             <a href="/home/logout">Logout</a>
           </div>
+
         </div>
     </nav>
 
@@ -184,20 +186,40 @@
 
 </div>
 
-
-
-<h1>After login you start here</h1>
-<h1>After login you start here</h1>
-<h1>After login you start here</h1>
-<h1>After login you start here</h1>
 <h1>After login you start here</h1>
 
 <h1>After signup you start here</h1>
-<h1>After signup you start here</h1>
-<h1>After signup you start here</h1>
-<h1>After signup you start here</h1>
-<h1>After signup you start here</h1>
 
+<%# SHOW ALL LISTINGS=======================================================%>
 
+<ul id="all-listing-list">
+<% allListings.forEach(function(listing) { %>
+  <li>
+      <br><%= listing.title %><br>
+      <%= listing.address %><br>
+      <%= listing.listingType %><br>
+      <%= listing.propertyType %><br>
+      <%= listing.price %><br>
+      <%= listing.size %><br>
+      <%= listing.tenure %><br>
+      <%= listing.bedroom %><br>
+      <%= listing.bathroom %><br>
+      <%= listing.details %><br>
+      <%= listing.contactName %><br>
+      <%= listing.contactNumber %><br>
+  </li>
+<% }) %>
+</ul>
+
+<ul id="all-district-list">
+<% allDistricts.forEach(function(district) { %>
+  <li>
+    <br><%= district.district %><br>%>
+        <%= district.neighbourhood %><br>%>
+  </li>
+  <% }) %>
+</ul>
+
+<%# ========================================================================%>
 
 </div>

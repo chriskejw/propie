@@ -1,0 +1,46 @@
+<%# ==============================================================%>
+ADMIN TO LIST ALL USERS
+<%# ==============================================================%>
+<ul id="all-user-list">
+<% allUsers.forEach(function(user) { %>
+  <%# <li>%>
+      <%= user.local.name %><br>
+      <%= user.local.email %><br>
+      <%= user.local.password %>
+  </li>
+<% }) %>
+</ul>
+<%# ==============================================================%>
+
+
+<%# SHOW ALL LISTINGS=======================================================%>
+
+<ul id="all-listing-list">
+<% allListings.forEach(function(listing) { %>
+  <li>
+      <br><%= listing.title %><br>
+      <%= listing.address %><br>
+      <%= listing.listingType %><br>
+      <%= listing.propertyType %><br>
+      <%= listing.price %><br>
+      <%= listing.size %><br>
+      <%= listing.tenure %><br>
+      <%= listing.bedroom %><br>
+      <%= listing.bathroom %><br>
+      <%= listing.details %><br>
+      <%= listing.contactName %><br>
+      <%= listing.contactNumber %><br>
+  </li>
+<% }) %>
+</ul>
+
+<ul id="all-district-list">
+<% allDistricts.forEach(function(district) { %>
+  <li>
+    <%# <br><%= district.district %><br>%>
+    <%# <%= district.neighbourhood %><br>%>
+  </li>
+  <% }) %>
+</ul>
+
+<%# ========================================================================%>
