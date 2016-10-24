@@ -26,7 +26,7 @@ var userSchema = new mongoose.Schema({
       ref: 'Listing'
     }],
 
-    dateRegistered: {
+    dateJoined: {
       type: Date,
       default: Date.now
     }

@@ -105,9 +105,9 @@
             <label class="col-md-4 control-label" for="district">District Number</label>
             <div class="col-md-5">
               <select id="district" name="district[district]" class="form-control">
-
+                <option value="0" selected></option>
                 <%allDistricts.forEach(function(district){%>
-                  <option value=<%= district._id%>><%=district.district%></option>
+                <option value=<%= district._id%>><%=district.district%></option>
             <%})%>
                 <%# <option value="0"></option>
                 <option value="580da8c1371327d0074a801f">District 01 - Raffles Place, Marina, Cecil</option>
@@ -144,11 +144,16 @@
             </div>
           </div>
 
-          <!-- Text input-->
+          <!-- Select Basic -->
           <div class="form-group">
             <label class="col-md-4 control-label" for="neighbourhood">Neighbourhood</label>
-            <div class="col-md-3">
-              <input id="neighbourhood" name="district[neighbourhood]" placeholder="i.e. Ang Mo Kio" class="form-control input-md" required="" type="text">
+            <div class="col-md-5">
+              <select id="neighbourhood" name="district[neighbourhood]" class="form-control">
+                  <option value="0" selected></option>
+                <%allNeighbourhood.forEach(function(neighbourhood){%>
+                  <option value=<%= neighbourhood._id%>><%=district.neighbourhood%></option>
+                <%})%>
+              </select>
             </div>
           </div>
 

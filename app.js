@@ -3,13 +3,13 @@ var express = require('express')
 var app = express()
 var port = process.env.PORT || 3000;
 var layout = require('express-ejs-layouts')
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser') //parses information from POST
 var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var MongoStore = require('connect-mongo')(session)
 var dotenv = require('dotenv')
-var mongoose = require('mongoose')
+var mongoose = require('mongoose') //mongo connection
 var morgan = require('morgan')
 
 // configuration ===============================================================

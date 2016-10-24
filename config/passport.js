@@ -31,7 +31,7 @@ module.exports = function (passport) {
         if (err) return next(err)
 
         if (foundUser) {
-          return next(null, false, req.flash('signupMessage', 'Email has been taken'))
+          return next(null, false, req.flash('signupMessage', 'Email has been taken!'))
         } else {
           User.create(req.body.user, function (err, newUser) {
             if (err) throw err
@@ -57,15 +57,15 @@ module.exports = function (passport) {
       if (err) return next(err)
       // if cannot find use by email, return to route with flash message
       if (!foundUser)
-        return next(null, false, req.flash('loginMessage', 'No user found with this email'))
+        return next(null, false, req.flash('loginMessage', 'No user found with this email!'))
 
       foundUser.auth(password, function (err, authenticated) {
         if (err) return next(err)
 
         if (authenticated) {
-          return next(null, foundUser, req.flash('loginMessage', 'Hello logged in user ' + foundUser.local.name))
+          return next(null, foundUser)
         } else {
-          return next(null, false, req.flash('loginMessage', 'Password don\'t match'))
+          return next(null, false, req.flash('loginMessage', 'Password does not match!'))
         }
       })
     })

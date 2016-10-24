@@ -300,20 +300,21 @@
 <%# ==============================================================%>
 <ul id="all-listing-list">
 <% allListings.forEach(function(listing) { %>
-  <li>
-      <br><%= listing.title %><br>
-      <%= listing.address %><br>
-      <%= listing.listingType %><br>
-      <%= listing.propertyType %><br>
-      <%= listing.price %><br>
-      <%= listing.size %><br>
-      <%= listing.tenure %><br>
-      <%= listing.bedroom %><br>
-      <%= listing.bathroom %><br>
-      <%= listing.details %><br>
-      <%= listing.contactName %><br>
-      <%= listing.contactNumber %><br>
-  </li>
+  <ol>
+      <li>Listing:<%= listing.title %></li><br>
+      <li>Listing:<%= listing.address %></li><br>
+      <li>Listing:<%= listing.listingType %></li><br>
+      <li>Listing:<%= listing.propertyType %></li><br>
+      <li>Listing:<%= listing.price %><</li>br>
+      <li>Listing:<%= listing.size %></li><br>
+      <li>Listing:<%= listing.tenure %></li><br>
+      <li>Listing:<%= listing.bedroom %></li><br>
+      <li>Listing:<%= listing.bathroom %></li><br>
+      <li>Listing:<%= listing.details %></li><br>
+      <li>Listing:<%= listing.contactName %></li><br>
+      <li>Listing:<%= listing.contactNumber %></li><br>
+      <li>Listing:<%= ((listing.postDate).toLocaleDateString()) %></li><br>
+  </ol>
 <% }) %>
 </ul>
 

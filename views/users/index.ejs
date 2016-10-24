@@ -1,3 +1,4 @@
+
 <!-- Jumbotron -->
   <div class="container">
     <div class="jumbotron">
@@ -72,7 +73,7 @@
                     </div>
                   </div>
                   <div class="col-md-2">
-                    <div class="aa-single-advance-search">
+                    <div id="searchButton" class="aa-single-advance-search">
                       <input class="aa-search-btn" type="submit" value="Search">
                     </div>
                   </div>
@@ -334,34 +335,34 @@
 </section>
 <!-- / Latest property -->
 
-<%# SHOW ALL LISTINGS=======================================================%>
-
-<ul id="all-listing-list">
+<%# ==============================================================%>
+<ol id="all-listing-list">
 <% allListings.forEach(function(listing) { %>
-  <li>
-      <br><%= listing.title %><br>
-      <%= listing.address %><br>
-      <%= listing.listingType %><br>
-      <%= listing.propertyType %><br>
-      <%= listing.price %><br>
-      <%= listing.size %><br>
-      <%= listing.tenure %><br>
-      <%= listing.bedroom %><br>
-      <%= listing.bathroom %><br>
-      <%= listing.details %><br>
-      <%= listing.contactName %><br>
-      <%= listing.contactNumber %><br>
-  </li>
+  <ul>
+      <li>Listing: <%= listing.title %></li><br>
+      <li>Address: <%= listing.address %></li><br>
+      <li>Listing Type: <%= listing.listingType %></li><br>
+      <li>Property Type: <%= listing.propertyType %></li><br>
+      <li>Price: <%= listing.price %></li><br>
+      <li>Size: <%= listing.size %></li><br>
+      <li>Tenure: <%= listing.tenure %></li><br>
+      <li>Bedroom: <%= listing.bedroom %></li><br>
+      <li>Bathroom: <%= listing.bathroom %></li><br>
+      <li>Details: <%= listing.details %></li><br>
+      <li>Contact Name: <%= listing.contactName %></li><br>
+      <li>Contact Number: <%= listing.contactNumber %></li><br>
+      <li>Date Posted: <%= ((listing.postDate).toLocaleDateString()) %></li><br><hr><br>
+  </ul>
 <% }) %>
-</ul>
+</ol>
 
 <ul id="all-district-list">
 <% allDistricts.forEach(function(district) { %>
   <li>
-    <br><%= district.district %><br>%>
-        <%= district.neighbourhood %><br>%>
+    <br><%= district.district %><br>
+    <%= district.neighbourhood %><br>
   </li>
   <% }) %>
 </ul>
 
-<%# ========================================================================%>
+<%# ==============================================================%>

@@ -42,6 +42,22 @@ nav {
   text-align: center;
 }
 
+.img-square {
+  width: 250px;
+  padding: 0 20px;
+}
+
+#messageBox {
+  text-align: center;
+  margin-top:50px;
+  position: fixed;
+  z-index: -2;
+}
+
+#searchButton:hover {
+      border: 1px solid white;
+      border-radius: 5px;
+  }
 
 /*==================
   PROFILE SECTION
@@ -148,6 +164,7 @@ nav {
   display: inline;
   float: left;
   width: 100%;
+  position: relative;
 }
 #aa-advance-search .aa-advance-search-area {
   background-color: grey;
