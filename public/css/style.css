@@ -33,6 +33,16 @@ nav {
   text-align: center;
 }
 
+.pageHeaders {
+  margin-top: 50px;
+}
+
+.containerNew {
+  margin-top: 80px;
+  text-align: center;
+}
+
+
 /*==================
   PROFILE SECTION
 ====================*/
@@ -56,6 +66,11 @@ nav {
   margin-top: 0px;
   margin-left: 400px;
   margin-right: 100px;
+}
+
+.logout {
+  text-align: center;
+  margin-top: 40px;
 }
 
 /*==================
@@ -724,4 +739,34 @@ nav {
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
+}
+
+/*==================
+ IMAGE UPLOAD
+====================*/
+
+.imageContainer{
+  margin:20px auto;
+}
+.image-preview-input {
+  position: relative;
+	overflow: hidden;
+	margin: 0px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+  margin-left:2px;
 }

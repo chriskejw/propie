@@ -1,19 +1,4 @@
-<!-- Start Property header  -->
-
-<section id="aa-property-header">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="aa-property-header-inner">
-          <h2>Properties Page</h2>
-          <ol class="breadcrumb">
-        </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End Proerty header  -->
+<div class="pageHeaders">
 
 <!-- Start Properties  -->
 <section id="aa-properties">
@@ -311,3 +296,36 @@
   </div>
 </section>
 <!-- / Properties  -->
+
+<%# ==============================================================%>
+<ul id="all-listing-list">
+<% allListings.forEach(function(listing) { %>
+  <li>
+      <br><%= listing.title %><br>
+      <%= listing.address %><br>
+      <%= listing.listingType %><br>
+      <%= listing.propertyType %><br>
+      <%= listing.price %><br>
+      <%= listing.size %><br>
+      <%= listing.tenure %><br>
+      <%= listing.bedroom %><br>
+      <%= listing.bathroom %><br>
+      <%= listing.details %><br>
+      <%= listing.contactName %><br>
+      <%= listing.contactNumber %><br>
+  </li>
+<% }) %>
+</ul>
+
+<ul id="all-district-list">
+<% allDistricts.forEach(function(district) { %>
+  <li>
+    <br><%= district.district %><br>
+    <%= district.neighbourhood %><br>
+  </li>
+  <% }) %>
+</ul>
+
+<%# ==============================================================%>
+
+</div>

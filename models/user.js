@@ -21,10 +21,10 @@ var userSchema = new mongoose.Schema({
       required: true
     },
 
-    listing_id: {
+    listing_id: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Listing'
-    },
+    }],
 
     dateRegistered: {
       type: Date,

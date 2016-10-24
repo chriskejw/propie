@@ -3,7 +3,6 @@
     <div class="jumbotron">
       <h1>A New Home</h1>
       <p>...is just a few clicks away</p>
-
       <!-- Advance Search -->
       <section id="aa-advance-search">
         <div class="container">
@@ -143,17 +142,30 @@
         </div>
       </section>
       <!--/Advance Search -->
-
     </div>
   </div>
 <!--/Jumbotron -->
+
+
+<%# ==============================================================%>
+<ul id="all-user-list">
+<% allUsers.forEach(function(user) { %>
+  <%# <li>%>
+      <%= user.local.name %><br>
+      <%= user.local.email %><br>
+      <%= user.local.password %>
+  </li>
+<% }) %>
+</ul>
+<%# ==============================================================%>
+
 
 <!-- Latest property -->
 <section id="aa-latest-property">
   <div class="container">
     <div class="aa-latest-property-area">
       <div class="aa-title">
-        <h2>All Properties</h2>
+        <h2>Latest Properties</h2>
         <span></span>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum sit ea nobis quae vero voluptatibus.</p>
       </div>
@@ -333,3 +345,22 @@
   </div>
 </section>
 <!-- / Latest property -->
+
+<%# <form class="login-user" action="/users/login" method="post">
+  <div class="row">
+    <div class="six columns">
+      <input type="text" name="user[local][email]" placeholder="Your email" class="u-full-width">
+    </div>
+    <div class="six columns">
+      <input type="text" name="user[local][password]" placeholder="Your password" class="u-full-width">
+    </div>
+    <input type="submit" value='Log in'>
+  </div>
+</form>%>
+
+<% if(message.length > 0) { %>
+  <h2>FLASH FOUND</h2>
+  <div class="alert alert-danger">
+    <%= message %>
+  </div>
+<% } %>

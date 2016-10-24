@@ -12,19 +12,14 @@ var listingSchema = new mongoose.Schema({
     required: true
   },
 
-  district: {
-    type: Number,
-    required: true
-  },
-
-  neighborhood_id: {
+  district_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Neighborhood'
+    ref: 'District'
   },
 
   listingType: {
     type: String,
-    required: String
+    required: true
   },
 
   propertyType: {
@@ -59,7 +54,15 @@ var listingSchema = new mongoose.Schema({
 
   details: String,
 
-  contactNumber: Number,
+  contactName: {
+    type: String,
+    required: true
+  },
+
+  contactNumber: {
+    type: Number,
+    required: true
+  },
 
   postDate: {
     type: Date,
