@@ -15,6 +15,7 @@ module.exports = function (passport) {
     })
   })
 
+// local signup
   passport.use('local-signup', new LocalStrategy({
   // by default, local strategy uses username and password, we will override with email
     usernameField: 'user[local][email]',
@@ -23,15 +24,20 @@ module.exports = function (passport) {
   }, function (req, email, password, next) {
     // the authentication flow on our local auth routes
 
+// asynchronus
     process.nextTick(function () {
       User.findOne({'local.email': email }, function (err, foundUser) {
         // if user is found, dont create new user
         // if user is not found, create new user
 
-        if (err) return next(err)
+        if (err)
+          return next(err)
 
+        // if user found, return message
         if (foundUser) {
           return next(null, false, req.flash('signupMessage', 'Email has been taken!'))
+
+        // if no user found, create user
         } else {
           User.create(req.body.user, function (err, newUser) {
             if (err) throw err
@@ -42,6 +48,7 @@ module.exports = function (passport) {
     })
   }))
 
+// local login
   passport.use('local-login', new LocalStrategy({
     // by default, local strategy uses username and password, we will override with email
     usernameField: 'user[local][email]',
@@ -52,18 +59,23 @@ module.exports = function (passport) {
     console.log('authenticating with given email and password')
     console.log(email, password)
 
+  // asynchronous
     User.findOne({ 'local.email': email }, function (err, foundUser) {
       // if there are any errors, return the error
-      if (err) return next(err)
-      // if cannot find use by email, return to route with flash message
+      if (err)
+        return next(err)
+
+      // if cannot find user by email, return message
       if (!foundUser)
         return next(null, false, req.flash('loginMessage', 'No user found with this email!'))
 
       foundUser.auth(password, function (err, authenticated) {
-        if (err) return next(err)
-
+        if (err)
+          return next(err)
+        // if found user, continue to profile
         if (authenticated) {
           return next(null, foundUser)
+
         } else {
           return next(null, false, req.flash('loginMessage', 'Password does not match!'))
         }

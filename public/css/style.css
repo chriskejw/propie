@@ -49,9 +49,10 @@ nav {
 
 #messageBox {
   text-align: center;
-  margin-top:50px;
+  top:50px;
+  position: absolute;
   position: fixed;
-  z-index: -2;
+  z-index: 3;
 }
 
 #searchButton:hover {
