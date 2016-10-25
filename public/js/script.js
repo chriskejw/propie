@@ -20,7 +20,8 @@
 //   }
 // })
 
-// IMAGE UPLOAD ========================================================================
+//IMAGE UPLOAD==============================================================
+
 $(document).on('click', '#close-preview', function(){
     $('.image-preview').popover('hide');
     // Hover befor close the preview
@@ -79,3 +80,15 @@ $(function() {
         reader.readAsDataURL(file);
     });
 });
+
+//PROFILE SIDE NAV==========================================================
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "300px";
+    document.getElementById("main").style.marginLeft = "300px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}

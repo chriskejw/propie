@@ -32,6 +32,7 @@
               <a id="aa-list-properties" href="#"><span class="fa fa-list"></span></a>
             </div>
           </div>
+
           <!-- Start properties content body -->
           <div class="aa-properties-content-body">
             <ul class="aa-properties-nav">
@@ -205,6 +206,7 @@
               </li>
             </ul>
           </div>
+
           <!-- Start properties content bottom -->
           <div class="aa-properties-content-bottom">
             <nav>
@@ -301,32 +303,44 @@
 <ul id="all-listing-list">
 <% allListings.forEach(function(listing) { %>
   <ol>
-      <li>Listing:<%= listing.title %></li><br>
-      <li>Listing:<%= listing.address %></li><br>
-      <li>Listing:<%= listing.listingType %></li><br>
-      <li>Listing:<%= listing.propertyType %></li><br>
-      <li>Listing:<%= listing.price %><</li>br>
-      <li>Listing:<%= listing.size %></li><br>
-      <li>Listing:<%= listing.tenure %></li><br>
-      <li>Listing:<%= listing.bedroom %></li><br>
-      <li>Listing:<%= listing.bathroom %></li><br>
-      <li>Listing:<%= listing.details %></li><br>
-      <li>Listing:<%= listing.contactName %></li><br>
-      <li>Listing:<%= listing.contactNumber %></li><br>
-      <li>Listing:<%= ((listing.postDate).toLocaleDateString()) %></li><br>
+      <li>Post ID:<%= listing._id %></li><br>
+      <li>Title:<%= listing.title %></li><br>
+      <li>Address:<%= listing.address %></li><br>
+      <li>Listing Type:<%= listing.listingType %></li><br>
+      <li>Property Type:<%= listing.propertyType %></li><br>
+      <li>Price ($):<%= listing.price %><</li>br>
+      <li>Size (sqft):<%= listing.size %></li><br>
+      <li>Tenure:<%= listing.tenure %></li><br>
+      <li>Bedroom(s):<%= listing.bedroom %></li><br>
+      <li>Bathroom(s):<%= listing.bathroom %></li><br>
+      <li>Addtional Details:<%= listing.details %></li><br>
+      <li>Contact Name:<%= listing.contactName %></li><br>
+      <li>Contact No.:<%= listing.contactNumber %></li><br>
+      <li>Date Posted:<%= ((listing.postDate).toLocaleDateString()) %></li><br>
+      <li>District:<%= listing.district[0].district%><li><br>
+      <li<Area:<%= listing.district,[10].area %><br>
   </ol>
 <% }) %>
-</ul>
-
-<ul id="all-district-list">
-<% allDistricts.forEach(function(district) { %>
-  <li>
-    <br><%= district.district %><br>
-    <%= district.neighbourhood %><br>
-  </li>
-  <% }) %>
 </ul>
 
 <%# ==============================================================%>
 
 </div>
+
+<%# ==============================================================%>
+
+<%# var listings = {
+    title: "Good buy",
+    address: "Thomson",
+    district: [{
+       district: 34,
+       neighbourhood: "Bishan"
+    },{
+       district: 12,
+       neighbourhood: "Toa Payoh"
+    }]
+}
+
+console.log(listings.district[1].neighbourhood)%>
+
+<%# ==============================================================%>

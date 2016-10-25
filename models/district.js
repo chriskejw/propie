@@ -2,7 +2,10 @@ var mongoose = require('mongoose')
 
 var districtSchema = new mongoose.Schema({
 
-  neighbourhood: String,
+  area: [{
+    type: String,
+    required: true
+  }],
 
   district: {
   type: String,

@@ -1,4 +1,4 @@
-// set up and get all the tools we need ========================================
+//set up and get all the tools we need=======================================
 
 var express = require('express')
 var app = express()
@@ -14,7 +14,7 @@ var morgan = require('morgan')
 var mongoose = require('mongoose') //mongo connection
 mongoose.Promise = global.Promise
 
-// configuration ===============================================================
+//configuration==============================================================
 
 dotenv.load({ path: '.env.' + process.env.NODE_ENV})
 
@@ -45,7 +45,7 @@ app.use(bodyParser.urlencoded({ // to parse form submitted data
 
 require('./config/passport')(passport) // pass passport for configuration
 
-// routes ======================================================================
+//routes=====================================================================
 
 var listingsRoutes = require('./routes/listings')
 var usersRoutes = require('./routes/users')
@@ -59,7 +59,7 @@ app.use('/', usersRoutes)
 // app.use('/api/listings', ajaxRoutes)
 // app.use('/api/users', usersAPIRoutes)
 
-// launch ======================================================================
+//launch=====================================================================
 
 app.listen(port)
 console.log('Server started on port ' + port)

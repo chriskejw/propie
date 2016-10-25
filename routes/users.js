@@ -8,9 +8,9 @@ var District = require('../models/district');
 var Listing = require('../models/listing');
 var User = require('../models/user');
 
-//THE WHOLE THING=========================================================
 
-// home page
+//HOME PAGE==================================================================
+
 router.get('/', function (req, res) {
     Listing.find({}, function (err, allListings) {
       if (err) throw new Error (err)
@@ -27,14 +27,16 @@ router.get('/', function (req, res) {
   })
 })
 
-// process the login form
+//PROCESS THE LOGIN FORM=====================================================
+
 router.post('/', isLoggedIn, passport.authenticate('local-login', {
   successRedirect : '/profile', // redirect to the secure profile section
   failureRedirect : '/', // redirect back to home page if there is an error
   failureFlash : true // show flash message
 }))
 
-// process the signup form
+//PROCESS THE SIGNUP FORM====================================================
+
 router.route('/')
   .get(function(req, res) {
       res.render('users/index', {
@@ -50,7 +52,8 @@ router.route('/')
     failureFlash: true,
   }));
 
-// profile page
+//PROFILE PAGE===============================================================
+
   router.get('/profile', function(req, res) {
     User.findById(req.user._id, function(err, user) {
       Listing.find({}, function(err, allListings) {
@@ -67,15 +70,15 @@ router.route('/')
     })
   });
 
-// logout page
+//LOGOUT PAGE=================================================================
+
   router.get('/logout', function(req, res) {
     req.logout() // logout session
     res.redirect('/') // go back to home
   })
 
-//==============
+//DELETE USER PROFILE========================================================
 
-// delete user profile / account
 router.get('/deleteProfile', function(req, res) {
       var user            = req.user;
       user.local.email    = undefined;
@@ -85,7 +88,8 @@ router.get('/deleteProfile', function(req, res) {
       });
   });
 
-  // check if user has already logged in
+//CHECK IF USER IS LOGGED IN=================================================
+
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
       req.flash('signupMessage', 'You are already logged in!')
@@ -95,7 +99,11 @@ router.get('/deleteProfile', function(req, res) {
     }
   };
 
-// //CHECK IF LOGGED IN=========================================================
+//===========================================================================
+
+module.exports = router
+
+// //CHECK IF LOGGED IN======================================================
 //
 // function isLoggedIn(req, res, next) {
 //   // if user is authenticated in the session, carry on
@@ -116,7 +124,7 @@ router.get('/deleteProfile', function(req, res) {
 // //       res.redirect('/home');
 // // };
 //
-// //HOME=========================================================================
+// //HOME====================================================================
 //
 // // // router.get('/', isLoggedIn, function (req, res) {
 // // router.get('/', function (req, res) {
@@ -150,7 +158,7 @@ router.get('/deleteProfile', function(req, res) {
 //   })
 // })
 //
-// //LOGIN========================================================================
+// //LOGIN===================================================================
 //
 // // // show the login form
 // // router.get ('/login', function(req, res) {
@@ -182,7 +190,7 @@ router.get('/deleteProfile', function(req, res) {
 //   failureFlash : true // show flash message
 // }))
 //
-// //PROFILE======================================================================
+// //PROFILE=================================================================
 //
 // router.get('/profile', function(req, res) {
 //   User.findById(req.user._id, function(err, user) {
@@ -200,14 +208,14 @@ router.get('/deleteProfile', function(req, res) {
 //   })
 // });
 //
-// //LOGOUT=======================================================================
+// //LOGOUT==================================================================
 //
 // router.get('/logout', function(req, res) {
 //   req.logout() // logout session
 //   res.redirect('/') // go back to home
 // })
 //
-// //SIGNUP=======================================================================
+// //SIGNUP==================================================================
 //
 // // show the signup form
 // router.route('/signup')
@@ -224,7 +232,4 @@ router.get('/deleteProfile', function(req, res) {
 //     failureRedirect: '/',
 //     failureFlash: true,
 //   }));
-//
-// //=============================================================================
-
-module.exports = router
+// //========================================================================

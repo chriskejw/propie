@@ -1,73 +1,62 @@
 <div class="pageHeaders">
 
-  <div class="containerPosting">
+  <div class="containerPosting" id="main">
 
-    <nav class="profileLeft">
-      <div class="container-fluid well span6">
-      	<%# <div class="row-fluid">%>
-              <div class="span8" >
-      		    <img src="https://s-media-cache-ak0.pinimg.com/736x/91/91/ba/9191ba989eed8d86a12fa75e84054e5b.jpg" class="img-square">
-              </div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-              <div class="span8">
-                  <h3>Username: <%= user.local.name %></h3>
-                  <h6>Email: <%= user.local.email %><br></h6>
-                  <h6>Date Joined: <%= ((user.local.dateJoined).toLocaleDateString()) %><br></h6>
-              </div>
+      <img src="https://s-media-cache-ak0.pinimg.com/736x/91/91/ba/9191ba989eed8d86a12fa75e84054e5b.jpg" class="img-square">
+      <h3>Username: <b><%= user.local.name %></b></h3>
+      <h5>Email: <b><%= user.local.email %></b><br></h5>
+      <h5>Date Joined: <b><%= ((user.local.dateJoined).toLocaleDateString()) %></b><br></h5>
+      <a class="sideNavLink btn-danger" href="/listings/new">Create Listing</a>
+      <a class="sideNavLink" href="#">Update</a>
+      <a class="sideNavLink" href="/deleteProfile">Delete Profile</a>
+      <a class="sideNavLink" href="#">Settings</a>
+      <br>
+      <a class="sideNavLink" href="/logout">Logout</a>
 
-              <div class="span8">
-                  <div class="btn-group">
-                      <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
-                          Update
-                          <span class="icon-cog icon-white"></span><span class="caret"></span>
-                      </a>
-                      <ul class="dropdown-menu">
-                          <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
-                          <li><a href="/deleteProfile"><span class="icon-trash"></span> Delete</a></li>
-                      </ul>
-                </div>
-            </div>
+    </div>
 
-          <div class="logout">
-            <a href="/logout">Logout</a>
-          </div>
+    <div id="main">
+      <span class="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; profile</span>
+    </div>
 
-        </div>
-    </nav>
+
+<div class="allPosting">
+
+<% allListings.forEach(function(listing) { %>
 
     <section class="userPosting">
-      <div class="row">
-        <div class="span8">
           <div class="row">
             <div class="span8">
-              <h4><strong><a href="#">Title of the post</a></strong></h4>
+              <h4><strong><a href="#"><%= listing.title %></a></strong></h4>
             </div>
           </div>
           <div class="row">
             <div class="span2">
               <a href="#" class="thumbnail">
-                  <img src="http://placehold.it/260x180" alt="">
+                <img src="https://i.ytimg.com/vi/Xx6t0gmQ_Tw/maxresdefault.jpg" alt="">
               </a>
             </div>
             <div class="span6">
               <p>
-                Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
+                <%= listing.details %>
               </p>
-              <div class="btn-group">
-                  <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
-                      Action
-                      <span class="icon-cog icon-white"></span><span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
-                      <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
-                  </ul>
+            <div class="postButton btn-group">
+              <a class="btn dropdown-toggle btn-danger" data-toggle="dropdown" href="#">Action
+                <span class="icon-cog icon-white"></span><span class="caret"></span>
+              </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
+                  <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+                </ul>
             </div>
             </div>
           </div>
+          <hr>
           <div class="row">
             <div class="span8">
-              <p></p>
               <p>
                 <i class="icon-user"></i> by <a href="#">Username</a>
                 | <i class="icon-calendar"></i>Sept 16th, 2012
@@ -80,147 +69,14 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
-      <hr>
+          <hr>
     </section>
 
-    <section class="userPosting">
-      <div class="row">
-        <div class="span8">
-          <div class="row">
-            <div class="span8">
-              <h4><strong><a href="#">Title of the post</a></strong></h4>
-            </div>
-          </div>
-          <div class="row">
-            <div class="span2">
-              <a href="#" class="thumbnail">
-                  <img src="http://placehold.it/260x180" alt="">
-              </a>
-            </div>
-            <div class="span6">
-              <p>
-                Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="span8">
-              <p></p>
-              <div class="btn-group">
-                  <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
-                      Action
-                      <span class="icon-cog icon-white"></span><span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
-                      <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
-                  </ul>
-            </div>
-              <p>
-                <i class="icon-user"></i> by <a href="#">Username</a>
-                | <i class="icon-calendar"></i>Sept 16th, 2012
-                | <i class="icon-comment"></i> <a href="#">3 Enquiries</a>
-                | <i class="icon-share"></i> <a href="#">39 Views</a>
-                | <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a>
-                <a href="#"><span class="label label-info">Bootstrap</span></a>
-                <a href="#"><span class="label label-info">UI</span></a>
-                <a href="#"><span class="label label-info">growth</span></a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr>
-    </section>
+<% }) %>
 
 
-    <section class="userPosting">
-      <div class="row">
-        <div class="span8">
-          <div class="row">
-            <div class="span8">
-              <h4><strong><a href="#">Title of the post</a></strong></h4>
-            </div>
-          </div>
-          <div class="row">
-            <div class="span2">
-              <a href="#" class="thumbnail">
-                  <img src="http://placehold.it/260x180" alt="">
-              </a>
-            </div>
-            <div class="span6">
-              <p>
-                Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-              </p>
-              <div class="btn-group">
-                  <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
-                      Action
-                      <span class="icon-cog icon-white"></span><span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
-                      <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
-                  </ul>
-            </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="span8">
-              <p></p>
-              <p>
-                <i class="icon-user"></i> by <a href="#">Username</a>
-                | <i class="icon-calendar"></i>Sept 16th, 2012
-                | <i class="icon-comment"></i> <a href="#">3 Enquiries</a>
-                | <i class="icon-share"></i> <a href="#">39 Views</a>
-                | <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a>
-                <a href="#"><span class="label label-info">Bootstrap</span></a>
-                <a href="#"><span class="label label-info">UI</span></a>
-                <a href="#"><span class="label label-info">growth</span></a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
 </div>
-
-<h1>After login you start here</h1>
-
-<h1>After signup you start here</h1>
-
-<%# SHOW ALL LISTINGS=======================================================%>
-
-<ul id="all-listing-list">
-<% allListings.forEach(function(listing) { %>
-  <li>
-      <br><%= listing.title %><br>
-      <%= listing.address %><br>
-      <%= listing.listingType %><br>
-      <%= listing.propertyType %><br>
-      <%= listing.price %><br>
-      <%= listing.size %><br>
-      <%= listing.tenure %><br>
-      <%= listing.bedroom %><br>
-      <%= listing.bathroom %><br>
-      <%= listing.details %><br>
-      <%= listing.contactName %><br>
-      <%= listing.contactNumber %><br>
-  </li>
-<% }) %>
-</ul>
-
-<ul id="all-district-list">
-<% allDistricts.forEach(function(district) { %>
-  <li>
-    <br><%= district.district %><br>%>
-        <%= district.neighbourhood %><br>%>
-  </li>
-  <% }) %>
-</ul>
-
-<%# ========================================================================%>
-
+</div>
 </div>

@@ -11,7 +11,7 @@
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="title">Listing Title</label>
+            <label class="col-md-4 control-label" for="title">Title</label>
             <div class="col-md-5">
               <input id="title" name="listing[title]" placeholder="" class="form-control input-md" required="" type="text">
             </div>
@@ -96,7 +96,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="address">Address</label>
             <div class="col-md-5">
-              <input id="address" name="listing[address]" placeholder="i.e. Block 10, Ang Mo Kio Ave 2, Singapore 562710" class="form-control input-md" required="" type="text">
+              <input id="address" name="listing[address]" placeholder="i.e. Block 11, Ang Mo Kio Ave 2, Singapore 562710" class="form-control input-md" required="" type="text">
             </div>
           </div>
 
@@ -105,7 +105,7 @@
             <label class="col-md-4 control-label" for="district">District Number</label>
             <div class="col-md-5">
               <select id="district" name="district[district]" class="form-control">
-                <option value="0" selected></option>
+                <option value="" selected></option>
                 <%allDistricts.forEach(function(district){%>
                 <option value=<%= district._id%>><%=district.district%></option>
             <%})%>
@@ -146,13 +146,13 @@
 
           <!-- Select Basic -->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="neighbourhood">Neighbourhood</label>
+            <label class="col-md-4 control-label" for="area">Area</label>
             <div class="col-md-5">
-              <select id="neighbourhood" name="district[neighbourhood]" class="form-control">
-                  <option value="0" selected></option>
-                <%allNeighbourhood.forEach(function(neighbourhood){%>
-                  <option value=<%= neighbourhood._id%>><%=district.neighbourhood%></option>
-                <%})%>
+              <select id="area" name="district[area]" class="form-control">
+              <option value="" selected></option>
+                <% allDistricts.forEach(function(district) { %>
+                <option value=<%= district.area._id%>><%=district.area%></option>
+              <% }) %>
               </select>
             </div>
           </div>
