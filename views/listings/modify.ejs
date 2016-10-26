@@ -23,17 +23,17 @@
   <!-- FORM-->
   <div class="containerNew">
     <div class="row">
-      <form class="form-horizontal" method="post" action="/listings/new">
+      <form class="form-horizontal" method="POST" action="/listings/<%= selectedListing.id %>/modify?_method=put">
         <fieldset>
 
           <!-- Form Name -->
-          <legend><h1>Create New Listing</h1></legend>
+          <legend><h1>Modify Listing</h1></legend>
 
           <!-- Text input-->
           <div class="form-group">
             <label class="col-md-4 control-label" for="title">Title</label>
             <div class="col-md-5">
-              <input id="title" name="listing[title]" placeholder="" class="form-control input-md" required="" type="text">
+              <input id="title" name="listing[title]" placeholder="" class="form-control input-md" required="" type="text" value="<%= selectedListing.title %>">
             </div>
           </div>
 
@@ -116,7 +116,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="address">Address</label>
             <div class="col-md-5">
-              <input id="address" name="listing[address]" placeholder="i.e. Block 11, Ang Mo Kio Ave 2, Singapore 562710" class="form-control input-md" required="" type="text">
+              <input id="address" name="listing[address]" placeholder="i.e. Block 11, Ang Mo Kio Ave 2, Singapore 562710" class="form-control input-md" required="" type="text"><%= %>
             </div>
           </div>
 
@@ -292,7 +292,7 @@
           <div class="form-group">
             <label class="col-md-3 control-label" for="submit"></label>
             <div class="col-md-6">
-              <button id="submit" name="submit" class="btn btn-default">Submit Listing</button>
+              <button id="submit" name="submit" class="btn btn-default" >Submit Modified Listing</button>
             </div>
           </div>
 

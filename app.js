@@ -26,7 +26,7 @@ dotenv.load({
   path: '.env.' + process.env.NODE_ENV
 })
 mongoose.connect(process.env.MONGO_URI)
-
+app.use(override('_method'))
 app.use(morgan('dev'))
 app.set('view engine', 'ejs') // set up ejs for templating
 app.use(layout)

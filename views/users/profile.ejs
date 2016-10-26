@@ -9,11 +9,10 @@
       <h3>Username: <b><%= user %></b></h3>
       <h5>Email: <b><%= email %></b><br></h5>
       <h5>Date Joined: <b><%= dateJoined %></b><br></h5>
+      <a class="sideNavLink" href="/profile">My Profile</a>
       <a class="sideNavLink btn-success" href="/listings/search">Search Listing</a>
       <a class="sideNavLink btn-danger" href="/listings/new">Create Listing</a>
       <a class="sideNavLink" href="#">Update</a>
-      <a class="sideNavLink" href="/deleteProfile">Delete Profile</a>
-      <a class="sideNavLink" href="#">Settings</a>
       <br>
       <a class="sideNavLink" href="/logout">Logout</a>
 
@@ -49,8 +48,11 @@
                 <span class="icon-cog icon-white"></span><span class="caret"></span>
               </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
-                  <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+
+                  <li><a href="/listings/<%= listing.id %>/modify"><span class="icon-wrench"></span>Modify</a></li>
+
+                  <li><a href="/profile/<%=listing.id%>?_method=DELETE" method="post" type="submit"><span class="icon-trash"></span> Delete</a></li>
+
                 </ul>
             </div>
             </div>
