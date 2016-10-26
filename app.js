@@ -1,26 +1,26 @@
-//set up and get all the tools we need=======================================
+// set up and get all the tools we need=======================================
 
 var express = require('express')
 var app = express()
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000
 
 var layout = require('express-ejs-layouts')
-var bodyParser = require('body-parser') //parses information from POST
+var bodyParser = require('body-parser') // parses information from POST
 
-var flash = require('connect-flash');
-var session = require('express-session');
+var flash = require('connect-flash')
+var session = require('express-session')
 
-var passport = require('passport');
+var passport = require('passport')
 var MongoStore = require('connect-mongo')(session)
 
 var dotenv = require('dotenv')
 var morgan = require('morgan')
 var override = require('method-override')
 
-var mongoose = require('mongoose') //mongo connection
+var mongoose = require('mongoose') // mongo connection
 mongoose.Promise = global.Promise
 
-//configuration==============================================================
+// configuration==============================================================
 
 dotenv.load({
   path: '.env.' + process.env.NODE_ENV
@@ -51,15 +51,17 @@ app.use(bodyParser.urlencoded({ // to parse form submitted data
 
 require('./config/passport')(passport) // pass passport for configuration
 
-//routes=====================================================================
+// routes=====================================================================
 
 var listingsRoutes = require('./routes/listings')
 var usersRoutes = require('./routes/users')
+var listingsAPIRoutes = require('./routes/listings_api')
 
 app.use('/listings', listingsRoutes)
 app.use('/', usersRoutes)
+app.use('/listings/api', listingsAPIRoutes)
 
-//launch=====================================================================
+// launch=====================================================================
 
 app.listen(port)
 console.log('Server started on port ' + port)

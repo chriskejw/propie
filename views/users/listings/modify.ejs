@@ -116,7 +116,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="address">Address</label>
             <div class="col-md-5">
-              <input id="address" name="listing[address]" placeholder="i.e. Block 11, Ang Mo Kio Ave 2, Singapore 562710" class="form-control input-md" required="" type="text"><%= %>
+              <input id="address" name="listing[address]" placeholder="i.e. Block 11, Ang Mo Kio Ave 2, Singapore 562710" class="form-control input-md" required="" type="text" value="<%= selectedListing.address %>">
             </div>
           </div>
 
@@ -197,7 +197,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="price">List Price ($)</label>
             <div class="col-md-2">
-              <input id="price" name="listing[price]" placeholder="" class="form-control input-md" type="text">
+              <input id="price" name="listing[price]" placeholder="" class="form-control input-md" type="text" value="<%= selectedListing.price %>">
             </div>
           </div>
 
@@ -205,7 +205,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="size">Size (sqf)</label>
             <div class="col-md-2">
-              <input id="size" name="listing[size]" placeholder="" class="form-control input-md" type="text">
+              <input id="size" name="listing[size]" placeholder="" class="form-control input-md" type="text" value="<%= selectedListing.size %>">
             </div>
           </div>
 
@@ -268,7 +268,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="details">Addtional Details</label>
             <div class="col-md-5">
-              <textarea class="form-control" id="details" name="listing[details]"></textarea>
+              <textarea class="form-control" id="details" name="listing[details]"><%= selectedListing.details %></textarea>
             </div>
           </div>
 
@@ -276,7 +276,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Name</label>
             <div class="col-md-3">
-              <input id="name" name="listing[contactName]" placeholder="" class="form-control input-md" type="text">
+              <input id="name" name="listing[contactName]" placeholder="" class="form-control input-md" type="text" value="<%= selectedListing.contactName %>">
             </div>
           </div>
 
@@ -284,7 +284,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="contactNumber">Contact Number</label>
             <div class="col-md-3">
-              <input id="contactNumber" name="listing[contactNumber]" placeholder="" class="form-control input-md" type="text">
+              <input id="contactNumber" name="listing[contactNumber]" placeholder="" class="form-control input-md" type="text" value="<%= selectedListing.contactNumber %>">
             </div>
           </div>
 
