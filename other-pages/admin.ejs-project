@@ -363,3 +363,18 @@ ADMIN TO LIST ALL USERS
 
     </div>
 </nav>
+
+//AREA for new form============
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="area">Area</label>
+  <div class="col-md-5">
+    <select id="area" name="district[area]" class="form-control">
+    <option value="" selected></option>
+      <% allDistricts.forEach(function(district) { %>
+      <option value=<%= district.area._id%>><%=district.area%></option>
+    <% }) %>
+    </select>
+  </div>
+</div>

@@ -7,39 +7,67 @@ var User = require('../models/user');
 
 //NEW LISTING FORM=====================================================
 
-router.get('/new', function (req, res) {
-  Listing.find({}, function (err, allListings) {
-    if (err) throw new Error (err)
-  District.find({}, function (err, allDistricts) {
-      if (err) throw new Error (err)
-    console.log(allDistricts + allListings)
-    res.render('listings/new', {
-      message1: req.flash('loginMessage'),
-      message2: req.flash('signupMessage'),
-      allListings: allListings,
-      allDistricts: allDistricts
+router.get('/new', function(req, res) {
+  if (!req.isAuthenticated())
+    res.redirect('/')
+  Listing.find({}, function(err, allListings) {
+    if (err) throw new Error(err)
+    District.find({}, function(err, allDistricts) {
+      if (err) throw new Error(err)
+      console.log(allDistricts + allListings)
+      res.render('listings/new', {
+        message1: req.flash('loginMessage'),
+        message2: req.flash('signupMessage'),
+        allListings: allListings,
+        allDistricts: allDistricts,
+        user: req.user.local.name,
+        email: req.user.local.email,
+        dateJoined: ((req.user.local.dateJoined).toLocaleDateString())
+      })
     })
-  })
   })
 })
 
 // create new listing
 router.post('/new', function(req, res) {
   console.log('req:', req.body)
-  Listing.create(req.body.listing, function (err, listing) {
-    if (err) {
-      res.send('an err during creation' + err)
-    } else {
-      res.redirect('/profile')
-    }
-  })
+  console.log('req:', req.user._id)
+  // Listing.create(req.body.listing, function(err, listing) {
+  //   if (err) {
+  //     res.send('an err during creation' + err)
+  //   } else {
+  //     res.redirect('/profile')
+  //   }
+  // })
+
+// var listing = req.body.listing;
+var newListing = new Listing({
+  title: req.body.listing.title,
+  address: req.body.listing.address,
+  district_id: req.body.listing.district,
+  listingType: req.body.listing.listingType,
+  propertyType: req.body.listing.propertyType,
+  price: req.body.listing.price,
+  size: req.body.listing.size,
+  tenure: req.body.listing.tenure,
+  bedroom: req.body.listing.bedroom,
+  bathroom: req.body.listing.bathroom,
+  details: req.body.listing.details,
+  contactName: req.body.listing.contactName,
+  contactNumber: req.body.listing.contactNumber,
+  user_id: req.user._id
+})
+newListing.save(function(err) {
+  if (err) throw new Error(err)
+})
+res.redirect('/profile')
 })
 
 //SHOW ALL LISTINGS============================================================
 
 router.route('/all')
-  .post(function(req,res){ // create a listing
-    var listing = new Listings ({
+  .post(function(req, res) { // create a listing
+    var newListing = new listing({
       title: req.body.title,
       address: req.body.address,
       district_id: req.body.district,
@@ -57,9 +85,9 @@ router.route('/all')
       postDate: req.body.postDate,
       user_id: req.body.user_id
     })
-    newListing.save(function (err){
-      if(err) throw new Error(err)
-   })
+    newListing.save(function(err) {
+      if (err) throw new Error(err)
+    })
   })
   .get(function(req, res) { // get all listings
     Listing.find(function(err, listings) {
@@ -73,12 +101,12 @@ router.route('/all')
 
 // get the listing with this id
 router.get('/details/:listing_id', function(req, res) {
-    Listing.findById(req.params.listing_id, function(err, listing) {
-      if (err)
-        res.send(err);
-      res.json(listing)
-    })
+  Listing.findById(req.params.listing_id, function(err, listing) {
+    if (err)
+      res.send(err);
+    res.json(listing)
   })
+})
 
 //UPDATE ONE LISTING=========================================================
 
@@ -89,13 +117,12 @@ router.get('/details/:listing_id', function(req, res) {
       res.json(listing)
     })
   })
-// update the listing with this id
+  // update the listing with this id
 router.put('/details/update/:listing_id', function(req, res) {
     // use listing model to find the listing
     Listing.findById(req.params.listing_id, function(err, lising) {
       if (err)
-        res.send(err)
-          [{ // update the listing info
+        res.send(err)[{ // update the listing info
           title: req.body.title,
           address: req.body.address,
           // district: req.body.district,
@@ -111,13 +138,15 @@ router.put('/details/update/:listing_id', function(req, res) {
           contactName: req.body.contactName,
           contactNumber: req.body.contactNumber,
           postDate: req.body.postDate
-          }]
+        }]
 
-          listng.save(function(err) { // save the listing
-            if (err)
-              res.send(err);
-            res.json({ message: 'Listing updated!'})
-          })
+      listng.save(function(err) { // save the listing
+        if (err)
+          res.send(err);
+        res.json({
+          message: 'Listing updated!'
+        })
+      })
     })
   })
   .delete(function(req, res) { // delete the listing with this id
@@ -126,10 +155,12 @@ router.put('/details/update/:listing_id', function(req, res) {
     }, function(err, listing) {
       if (err)
         res.send(err);
-      res.json({ message: 'Listing deleted!'})
+      res.json({
+        message: 'Listing deleted!'
+      })
     })
   })
-//============================================================================
+  //============================================================================
 
 module.exports = router
 

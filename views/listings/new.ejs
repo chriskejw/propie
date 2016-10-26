@@ -1,5 +1,26 @@
 <div class="pageHeaders">
 
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <img src="https://s-media-cache-ak0.pinimg.com/736x/91/91/ba/9191ba989eed8d86a12fa75e84054e5b.jpg" class="img-square">
+    <h3>Username: <b><%= user %></b></h3>
+    <h5>Email: <b><%= email %></b><br></h5>
+    <h5>Date Joined: <b><%= dateJoined %></b><br></h5>
+    <a class="sideNavLink btn-success" href="/listings/search">Search Listing</a>
+    <a class="sideNavLink btn-danger" href="/listings/new">Create Listing</a>
+    <a class="sideNavLink" href="#">Update</a>
+    <a class="sideNavLink" href="/deleteProfile">Delete Profile</a>
+    <a class="sideNavLink" href="#">Settings</a>
+    <br>
+    <a class="sideNavLink" href="/logout">Logout</a>
+
+  </div>
+
+  <div id="main">
+    <span class="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; profile</span>
+  </div>
+
   <!-- FORM-->
   <div class="containerNew">
     <div class="row">
@@ -104,7 +125,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="district">District Number</label>
             <div class="col-md-5">
-              <select id="district" name="district[district]" class="form-control">
+              <select id="district" name="listing[district]" class="form-control">
                 <option value="" selected></option>
                 <%allDistricts.forEach(function(district){%>
                 <option value=<%= district._id%>><%=district.district%></option>
@@ -140,19 +161,6 @@
                 </option>
                 <option value="D27">District 27 - Sembawang, Yishun, Admiralty</option>
                 <option value="D28">District 28 - Yio Chu Kang, Seletar</option>%>
-              </select>
-            </div>
-          </div>
-
-          <!-- Select Basic -->
-          <div class="form-group">
-            <label class="col-md-4 control-label" for="area">Area</label>
-            <div class="col-md-5">
-              <select id="area" name="district[area]" class="form-control">
-              <option value="" selected></option>
-                <% allDistricts.forEach(function(district) { %>
-                <option value=<%= district.area._id%>><%=district.area%></option>
-              <% }) %>
               </select>
             </div>
           </div>

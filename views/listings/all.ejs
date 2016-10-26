@@ -1,5 +1,26 @@
 <div class="pageHeaders">
 
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <img src="https://s-media-cache-ak0.pinimg.com/736x/91/91/ba/9191ba989eed8d86a12fa75e84054e5b.jpg" class="img-square">
+    <h3>Username: <b><%= user %></b></h3>
+    <h5>Email: <b><%= email %></b><br></h5>
+    <h5>Date Joined: <b><%= dateJoined %></b><br></h5>
+    <a class="sideNavLink btn-success" href="/listings/search">Search Listing</a>
+    <a class="sideNavLink btn-danger" href="/listings/new">Create Listing</a>
+    <a class="sideNavLink" href="#">Update</a>
+    <a class="sideNavLink" href="/deleteProfile">Delete Profile</a>
+    <a class="sideNavLink" href="#">Settings</a>
+    <br>
+    <a class="sideNavLink" href="/logout">Logout</a>
+
+  </div>
+
+  <div id="main">
+    <span class="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; profile</span>
+  </div>
+
 <!-- Start Properties  -->
 <section id="aa-properties">
   <div class="container">
@@ -236,11 +257,12 @@
         <aside class="aa-properties-sidebar">
           <!-- Start Single properties sidebar -->
           <div class="aa-properties-single-sidebar">
-            <h3>Properties Search</h3>
+            <h3>Search Listings</h3>
             <form action="">
               <div class="aa-single-advance-search">
                 <input type="text" placeholder="Type Your Location">
               </div>
+
               <div class="aa-single-advance-search">
                 <select id="" name="">
                  <option selected="" value="0">Category</option>
@@ -250,6 +272,7 @@
                   <option value="4">Commercial</option>
                 </select>
               </div>
+
               <div class="aa-single-advance-search">
                 <select id="" name="">
                   <option selected="" value="0">Type</option>
@@ -259,6 +282,7 @@
                   <option value="4">Commercial</option>
                 </select>
               </div>
+
               <div class="aa-single-advance-search">
                 <select id="" name="">
                   <option selected="" value="0">Type</option>
@@ -268,27 +292,11 @@
                   <option value="4">Commercial</option>
                 </select>
               </div>
-              <div class="aa-single-filter-search">
-                <span>AREA (SQ)</span>
-                <span>FROM</span>
-                <span id="skip-value-lower" class="example-val">30.00</span>
-                <span>TO</span>
-                <span id="skip-value-upper" class="example-val">100.00</span>
-                <div id="aa-sqrfeet-range" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
-                </div>
-              </div>
-              <div class="aa-single-filter-search">
-                <span>PRICE ($)</span>
-                <span>FROM</span>
-                <span id="skip-value-lower2" class="example-val">30.00</span>
-                <span>TO</span>
-                <span id="skip-value-upper2" class="example-val">100.00</span>
-                <div id="aa-price-range" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
-                </div>
-              </div>
+
               <div class="aa-single-advance-search">
                 <input type="submit" value="Search" class="aa-search-btn">
               </div>
+
             </form>
           </div>
           <!-- Start Single properties sidebar -->
