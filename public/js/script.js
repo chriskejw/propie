@@ -20,6 +20,12 @@
 //   }
 // })
 
+
+
+$(document).ready(function(){
+                    $("#messageBox").delay(1000).hide(0)
+})
+
 //IMAGE UPLOAD==============================================================
 
 $(document).on('click', '#close-preview', function() {
@@ -86,9 +92,13 @@ $(function() {
 function openNav() {
   document.getElementById("mySidenav").style.width = "300px";
   document.getElementById("main").style.marginLeft = "300px";
+  document.getElementById("containerNew").style.marginLeft = "300px";
+
 }
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("containerNew").style.marginLeft = "0";
+
 }

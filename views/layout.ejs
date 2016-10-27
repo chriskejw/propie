@@ -13,32 +13,41 @@
 <body>
 
   <header>
+
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
             <a class="logo" href="/"><img src="/image/logolong.png" class="logolong"></a>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-3">
+          <%# <ul class="nav navbar-nav navbar-right">%>
+          <ul class="nav navbar-nav">
             <li><a href="#">About</a></li>
-            <li><a href="#">For Sale</a></li>
+            <%# <li><a href="#">For Sale</a></li>
             <li><a href="#">For Rent</a></li>
             <li><a href="#">Landed</a></li>
             <li><a href="#">Condo</a></li>
             <li><a href="#">HDB</a></li>
             <li><a href="#">Area</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Contact</a></li>%>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <p class="navbar-text">Already have an account?</p>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-              <ul id="login-dp" class="dropdown-menu">
-                <li>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <p>Login Information</p>
 
+          <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text">Already have an account?</p></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+              <ul id="login-dp" class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>Login Information</p>
                       <form class="form" role="form" method="post" action="/login" accept-charset="UTF-8" id="login-nav">
                         <div class="form-group">
                           <label class="sr-only" for="exampleInputEmail2">Email address</label>
@@ -51,14 +60,14 @@
                         </div>
                         <div class="checkbox">
                           <label>
-                         <input type="checkbox">Keep me logged-in
-                         </label>
+                            <input type="checkbox">Keep me logged-in
+                          </label>
                         </div>
                         <div class="form-group">
                           <button type="submit" class="btn btn-primary btn-block">Log In</button>
                         </div>
                       </form>
-                    </div>
+                  </div>
                     <div class="bottom text-center">
                       New here? <a href="#"><b>Sign Up Now</b></a>
                     </div>
@@ -126,6 +135,68 @@
 
 <footer class="footer " id="homeFooter ">
   <p>Created by <strong>Chris Ke</strong> - <img src='/image/gaLogo.png'> General Assembly Singapore - WDI 6</p>
+</footer>
+
+<footer class="footer-distributed">
+
+  <div class="footer-left">
+
+    <h3>Company<span>logo</span></h3>
+
+    <p class="footer-links">
+      <a href="#">Home</a>
+      ·
+      <a href="#">Blog</a>
+      ·
+      <a href="#">Pricing</a>
+      ·
+      <a href="#">About</a>
+      ·
+      <a href="#">Faq</a>
+      ·
+      <a href="#">Contact</a>
+    </p>
+
+    <p class="footer-company-name">Company Name &copy; 2015</p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>21 Revolution Street</span> Paris, France</p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+1 555 123456</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:support@company.com">support@company.com</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+    <p class="footer-company-about">
+      <span>About the company</span>
+      Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+    </p>
+
+    <div class="footer-icons">
+
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-github"></i></a>
+
+    </div>
+
+  </div>
+
 </footer>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js " integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin=" anonymous "></script>

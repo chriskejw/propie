@@ -4,15 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  /*background: url('xx');*/
-}
-
-nav {
-  position: fixed;
-  width: 100%;
-}
-
 .logolong {
   float: left;
   width: 160px;
@@ -25,25 +16,14 @@ img.logolong:hover {
   opacity: 0.5;
 }
 
-.footer {
-  width: 100%;
-  bottom: 0;
-  text-align: center;
-}
-
-.jumbotron {
-  margin-top: 120px;
-  height: 500px;
-  text-align: center;
-}
-
 .pageHeaders {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .containerNew {
-  margin-top: 80px;
+  margin-top: 20px;
   text-align: center;
+  transition: margin-left .5s;
 }
 
 .img-square {
@@ -64,6 +44,63 @@ img.logolong:hover {
   border-radius: 5px;
 }
 
+/*==================
+  JUMBOTRON TITLE
+====================*/
+
+.jumbotron {
+  margin-top: 120px;
+  height: 500px;
+  text-align: center;
+}
+
+.bo {
+  margin: 5%;
+  text-align: center;
+}
+
+.yay {
+  font-size: 60px;
+  height: 60px;
+  float: left;
+  margin-right: 0.3em;
+}
+
+.nay {
+  text-align: left;
+  font-size: 60px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  height: 75px;
+}
+
+span1 {
+  text-align:
+  display: inline-block;
+  color: #5dd168;
+  position: relative;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  -webkit-animation: move 5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 2s;
+}
+
+@keyframes move {
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -90px;
+  }
+  40% {
+    top: -180px;
+  }
+  /*60% { top: -255px; }*/
+  /*80% { top: -345px; }*/
+}
 
 /*==================
   PROFILE SECTION
@@ -72,13 +109,6 @@ img.logolong:hover {
 .containerPosting {
   position: relative;
 }
-
-
-/*.profileLeft {
-  position: relative;
-  width: 300px;
-  float: left;
-}*/
 
 .span8 {
   text-align: center;
@@ -89,12 +119,18 @@ img.logolong:hover {
 }
 
 .allPosting {
-  padding: 10px;
-  margin: 0 300px;
+  padding: 1%;
+  margin: 0 20%;
 }
 
 .postButton {
-  margin: 0 45%;
+  margin: 0 40%;
+  width: 50%
+}
+
+.MoDe {
+  display: inline-block;
+  margin: 1%;
 }
 
 
@@ -977,4 +1013,178 @@ PROFILE SIDE NAV
 
 .image-preview-input-title {
   margin-left: 2px;
+}
+
+/*==================
+  FOOTER
+====================*/
+
+.footer {
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+.footer-distributed {
+  background-color: #292c2f;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: bold 16px sans-serif;
+  padding: 55px 50px;
+  margin-top: 5px;
+}
+
+.footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+/* Footer left */
+
+.footer-distributed .footer-left {
+  width: 40%;
+}
+
+
+/* The company logo */
+
+.footer-distributed h3 {
+  color: #ffffff;
+  font: normal 36px 'Cookie', cursive;
+  margin: 0;
+}
+
+.footer-distributed h3 span {
+  color: #5383d3;
+}
+
+
+/* Footer links */
+
+.footer-distributed .footer-links {
+  color: #ffffff;
+  margin: 20px 0 12px;
+  padding: 0;
+}
+
+.footer-distributed .footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-distributed .footer-company-name {
+  color: #8f9296;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+
+/* Footer Center */
+
+.footer-distributed .footer-center {
+  width: 35%;
+}
+
+.footer-distributed .footer-center i {
+  background-color: #33383b;
+  color: #ffffff;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  margin: 10px 15px;
+  vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope {
+  font-size: 17px;
+  line-height: 38px;
+}
+
+.footer-distributed .footer-center p {
+  display: inline-block;
+  color: #ffffff;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.footer-distributed .footer-center p a {
+  color: #5383d3;
+  text-decoration: none;
+  ;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right {
+  width: 20%;
+}
+
+.footer-distributed .footer-company-about {
+  line-height: 20px;
+  color: #92999f;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+  margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+  .footer-distributed {
+    font: bold 14px sans-serif;
+  }
+  .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .footer-distributed .footer-center i {
+    margin-left: 0;
+  }
 }

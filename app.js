@@ -26,7 +26,8 @@ dotenv.load({
   path: '.env.' + process.env.NODE_ENV
 })
 mongoose.connect(process.env.MONGO_URI)
-app.use(override('_method'))
+// app.use(override('_method'))
+
 app.use(morgan('dev'))
 app.set('view engine', 'ejs') // set up ejs for templating
 app.use(layout)
@@ -47,6 +48,15 @@ app.use(express.static(__dirname + '/public')) // serve static files
 app.use(bodyParser.json()) // get information from html forms
 app.use(bodyParser.urlencoded({ // to parse form submitted data
   extended: true
+}))
+
+app.use(override(function(req, res){
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method
+    return method
+  }
 }))
 
 require('./config/passport')(passport) // pass passport for configuration

@@ -7,14 +7,16 @@
     <h3>Username: <b><%= user %></b></h3>
     <h5>Email: <b><%= email %></b><br></h5>
     <h5>Date Joined: <b><%= dateJoined %></b><br></h5>
-    <a class="sideNavLink btn-success" href="/listings/search">Search Listing</a>
-    <a class="sideNavLink btn-danger" href="/listings/new">Create Listing</a>
-    <a class="sideNavLink" href="#">Update</a>
-    <a class="sideNavLink" href="/deleteProfile">Delete Profile</a>
-    <a class="sideNavLink" href="#">Settings</a>
+    <a class="sideNavLink" href="/profile">Profile</a>
+    <a class="sideNavLink" href="/listings/search">Search</a>
+    <a class="sideNavLink" href="/listings/new">Create Listing</a>
     <br>
     <a class="sideNavLink" href="/logout">Logout</a>
 
+  </div>
+
+  <div id="main">
+    <span class="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; profile</span>
   </div>
 
   <div id="main">

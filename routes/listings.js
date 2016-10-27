@@ -30,6 +30,8 @@ router.get('/new', function(req, res) {
 
 // create new listing
 router.post('/new', function(req, res) {
+  if (!req.isAuthenticated())
+    res.redirect('/') // if not logged in, redirect to login page
   console.log('req:', req.body)
   console.log('req:', req.user._id)
 
@@ -59,7 +61,7 @@ router.post('/new', function(req, res) {
 
 router.get('/:id/modify', function(req, res) {
   if (!req.isAuthenticated())
-    res.redirect('/')
+    res.redirect('/') // if not logged in, redirect to login page
   District.find({}, function(err, allDistricts) {
     if (err) throw new Error(err)
     Listing.findById(req.params.id, function(err, selectedListing) {
@@ -78,9 +80,9 @@ router.get('/:id/modify', function(req, res) {
 })
 
 router.put('/:id/modify', function(req, res) {
-  // res.send("TEST")
+  if (!req.isAuthenticated())
+    res.redirect('/') // if not logged in, redirect to login page
   var newestListing = req.body.listing;
-  // newestListing.user_id = req.user._id
   console.log("new listing: " + newestListing);
   Listing.findByIdAndUpdate(req.params.id, newestListing, function(err, listing) {
     if (err) throw new Error(err);
@@ -90,14 +92,26 @@ router.put('/:id/modify', function(req, res) {
 
 //DELETE LISTING============================================================
 
-// router.delete('/edit', function(req, res) {
-//   if (!req.isAuthenticated())
-//     res.redirect('/')
-// Listing.findByIdAndRemove(req.params.id, function(err, allListings) {
+router.delete('/profile/:id', function(req, res) {
+  if (!req.isAuthenticated())
+    res.redirect('/') // if not logged in, redirect to login page
+//     console.log("hey delete")
+Listing.findByIdAndRemove(req.params.id, function(err, allListings) {
+    if (err) { throw new Error (err)
+      console.log("cannot delete")
+      res.render('users/profile')
+    } else {
+      console.log("deleted")
+      res.redirect('/profile')
+    }
+  })
+})
+
+//==========================================================================
 
 module.exports = router
 
-//============================================================================
+//==========================================================================
 
 // //NEW LISTING FORM=====================================================
 //

@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
         message1: req.flash('loginMessage'),
         message2: req.flash('signupMessage'),
         allListings: allListings,
-        allDistricts: allDistricts
+        allDistricts: allDistricts,
       })
     })
   })
@@ -65,7 +65,7 @@ router.route('/signup')
       })
     })
   })
-  .post(passport.authenticate('local-signup', {
+  .post(isLoggedIn, passport.authenticate('local-signup', {
     successRedirect: '/profile',
     failureRedirect: '/',
     failureFlash: true,
@@ -101,25 +101,25 @@ router.get('/profile', function(req, res) {
 
 //DELETE USER PROFILE========================================================
 
-router.get('/deleteProfile', function(req, res) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/')
-  } else {
-    User.update({
-        'user.local.email': undefined
-      }, {
-        'user.local.password': undefined
-      },
-      function(err, doc) {
-        if (err) throw new Error(err)
-      }
-    )
-    console.log(req.user.local.email)
-    console.log(req.user.local.password)
-    res.send('done')
-    res.redirect('/')
-  }
-})
+// router.get('/deleteProfile', function(req, res) {
+//   if (!req.isAuthenticated()) {
+//     res.redirect('/')
+//   } else {
+//     User.update({
+//         'user.local.email': undefined
+//       }, {
+//         'user.local.password': undefined
+//       },
+//       function(err, doc) {
+//         if (err) throw new Error(err)
+//       }
+//     )
+//     console.log(req.user.local.email)
+//     console.log(req.user.local.password)
+//     res.send('done')
+//     res.redirect('/')
+//   }
+// })
 
 //===========================================================================
 
