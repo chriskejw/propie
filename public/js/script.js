@@ -20,10 +20,10 @@
 //   }
 // })
 
-
+//FLASH MESSAGE==============================================================
 
 $(document).ready(function(){
-                    $("#messageBox").delay(1000).hide(0)
+                    $("#messageBox").delay(1500).hide(0)
 })
 
 //IMAGE UPLOAD==============================================================
@@ -87,7 +87,7 @@ $(function() {
   });
 });
 
-//PROFILE SIDE NAV==========================================================
+//HEADER ANIMATION==========================================================
 
 function openNav() {
   document.getElementById("mySidenav").style.width = "300px";
@@ -100,5 +100,32 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
     document.getElementById("containerNew").style.marginLeft = "0";
-
 }
+
+//SCROLL TO TOP==========================================================
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    } else {
+        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+    }
+});
+$('#return-to-top').click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                       // Scroll to top of body
+    }, 500);
+});
+
+
+//change tag color==========================================================
+
+// $(window).scroll(function() {
+// if ((document.getElementByClass(".aa-tag.for-rent")) === "") {
+//   $('.aa-tag.for-rent').addClass('bestanswer')
+// }
+//
+//
+// .style.width = "300px";
+//
+// $("#td_id").addClass('newClass');

@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+/*==================
+  LAYOUT PAGE
+====================*/
+
 .logolong {
   float: left;
   width: 160px;
@@ -16,27 +20,51 @@ img.logolong:hover {
   opacity: 0.5;
 }
 
-.pageHeaders {
-  margin-top: 20px;
-}
-
-.containerNew {
-  margin-top: 20px;
-  text-align: center;
-  transition: margin-left .5s;
-}
-
-.img-square {
-  width: 250px;
-  padding: 0 20px;
-}
-
 #messageBox {
   text-align: center;
   top: 50px;
   position: absolute;
   position: fixed;
   z-index: 3;
+}
+
+/*==================
+  FORMS
+====================*/
+
+.col-md-2.radioInput {
+  width: 20%;
+}
+
+.pageHeaders {
+  margin-top: 20px;
+}
+
+/*==================
+  INDEX PAGE
+====================*/
+.containerNew {
+  margin-top: 20px;
+  text-align: center;
+  transition: margin-left .5s;
+}
+
+a#searchButton {
+  color: white;
+  text-decoration: none;
+  outline: 0;
+}
+
+a#searchButton:hover {
+  border:none;
+  outline:none;
+  text-decoration:none;
+  color:inherit;
+}
+
+.img-square {
+  width: 250px;
+  padding: 0 20px;
 }
 
 #searchButton:hover {
@@ -48,10 +76,18 @@ img.logolong:hover {
   JUMBOTRON TITLE
 ====================*/
 
-.jumbotron {
-  margin-top: 120px;
+.jumbotron.index {
+  margin-top: 105px;
   height: 500px;
   text-align: center;
+  background-image: url("/image/main.jpg");
+}
+
+.jumbotron.sorry {
+  margin-top: 105px;
+  height: 500px;
+  text-align: center;
+  background-image: url("/image/headerImage.jpeg");
 }
 
 .bo {
@@ -96,7 +132,7 @@ span1 {
     top: -90px;
   }
   40% {
-    top: -180px;
+    top: -175px;
   }
   /*60% { top: -255px; }*/
   /*80% { top: -345px; }*/
@@ -209,7 +245,7 @@ PROFILE SIDE NAV
 }
 
 .aa-search-btn:hover {
-  box-shadow: 1px 2px 2px 1px black;
+  box-shadow: 1px 1px 1px 1px black;
 }
 
 #login-dp {
@@ -273,7 +309,6 @@ PROFILE SIDE NAV
   }
 }
 
-
 /*Advance Search Bar*/
 
 #aa-advance-search {
@@ -293,6 +328,7 @@ PROFILE SIDE NAV
   padding: 25px 20px;
   position: relative;
   width: 100%;
+  opacity: 0.9;
 }
 
 #aa-advance-search .aa-advance-search-area .aa-advance-search-top {
@@ -450,6 +486,18 @@ PROFILE SIDE NAV
   background-color: #4285f4;
 }
 
+#for-rent {
+  background-color: #5dd168;
+}
+
+#for-sale {
+  background-color: #4285f4;
+}
+
+#for-soldout {
+  background-color: #ff0000;
+}
+
 .aa-properties-item .aa-properties-item-content {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -508,9 +556,8 @@ PROFILE SIDE NAV
 }
 
 .aa-title {
-  margin-left: 40px;
+text-align: center;
 }
-
 
 /*==================
   PROPERTY PAGE
@@ -1026,7 +1073,7 @@ PROFILE SIDE NAV
 }
 
 .footer-distributed {
-  background-color: #292c2f;
+  background-color: #222222;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
@@ -1041,13 +1088,11 @@ PROFILE SIDE NAV
   vertical-align: top;
 }
 
-
 /* Footer left */
 
 .footer-distributed .footer-left {
   width: 40%;
 }
-
 
 /* The company logo */
 
@@ -1060,7 +1105,6 @@ PROFILE SIDE NAV
 .footer-distributed h3 span {
   color: #5383d3;
 }
-
 
 /* Footer links */
 
@@ -1083,7 +1127,6 @@ PROFILE SIDE NAV
   font-weight: normal;
   margin: 0;
 }
-
 
 /* Footer Center */
 
@@ -1124,11 +1167,10 @@ PROFILE SIDE NAV
 }
 
 .footer-distributed .footer-center p a {
-  color: #5383d3;
+  color: #ffffff;
   text-decoration: none;
   ;
 }
-
 
 /* Footer Right */
 
@@ -1171,7 +1213,6 @@ PROFILE SIDE NAV
   margin-bottom: 5px;
 }
 
-
 /* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 880px) {
@@ -1187,4 +1228,80 @@ PROFILE SIDE NAV
   .footer-distributed .footer-center i {
     margin-left: 0;
   }
+}
+
+.footerLogo {
+  float: left;
+  width: 320px;
+  height: 64px;
+  border-radius: 6px;
+  margin: 8px 20px 8px 0px;
+}
+
+/*==================
+    SCROLL TO TOP
+====================*/
+
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+
+/*==================
+    ABOUT PAGE
+====================*/
+
+.about {
+  margin-top: 7%;
+  margin-bottom: 6%;
+  text-align: center;
+}
+
+.btn.btn-success.aboutButton {
+  margin: 2% 1%;
+}
+
+.htw {
+  margin: 3%;
+}
+
+.logoApp {
+  height: 10%;
+  width: 10%;
 }

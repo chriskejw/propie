@@ -30,8 +30,50 @@ router.get('/', function(req, res) {
       res.render('users/index', {
         message1: req.flash('loginMessage'),
         message2: req.flash('signupMessage'),
-        allListings: allListings,
-        allDistricts: allDistricts,
+        allListings: allListings.reverse(),
+        allDistricts: allDistricts.reverse()
+      })
+    })
+  })
+})
+
+//ABOUT=====================================================
+
+router.get('/about', function(req, res) {
+  Listing.find({}, function(err, allListings) {
+    if (err) throw new Error(err)
+    District.find({}, function(err, allDistricts) {
+      if (err) throw new Error(err)
+      User.find({}, function(err, allUsers) {
+          if (err) throw new Error(err)
+      res.render('users/about', {
+        allUsers: allUsers,
+        message1: req.flash('loginMessage'),
+        message2: req.flash('signupMessage'),
+        allListings: allListings.reverse(),
+        allDistricts: allDistricts.reverse()
+      })
+      })
+    })
+  })
+})
+
+//UNDER CONSTRUCTION=====================================================
+
+router.get('/underconstruction', function(req, res) {
+  Listing.find({}, function(err, allListings) {
+    if (err) throw new Error(err)
+    District.find({}, function(err, allDistricts) {
+      if (err) throw new Error(err)
+      User.find({}, function(err, allUsers) {
+          if (err) throw new Error(err)
+      res.render('users/sorry', {
+        allUsers: allUsers,
+        message1: req.flash('loginMessage'),
+        message2: req.flash('signupMessage'),
+        allListings: allListings.reverse(),
+        allDistricts: allDistricts.reverse()
+      })
       })
     })
   })
@@ -92,7 +134,7 @@ router.get('/profile', function(req, res) {
       user: req.user.local.name,
       email: req.user.local.email,
       dateJoined: ((req.user.local.dateJoined).toLocaleDateString()),
-      allListings: allListings,
+      allListings: allListings.reverse(),
       message1: req.flash('loginMessage'),
       message2: req.flash('signupMessage')
     })

@@ -6,15 +6,17 @@
     <h3>Username: <b><%= user %></b></h3>
     <h5>Email: <b><%= email %></b><br></h5>
     <h5>Date Joined: <b><%= dateJoined %></b><br></h5>
-    <a class="sideNavLink" href="/profile">My Profile</a>
+    <br>
+    <a class="sideNavLink" href="/profile">Update Profile</a>
+    <br>
     <a class="sideNavLink" href="/listings/search">Search</a>
+    <br>
     <a class="sideNavLink" href="/listings/new">Create</a>
     <br>
-    <a class="sideNavLink" href="/logout">Logout</a>
   </div>
 
   <div id="main">
-    <span class="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; profile</span>
+    <span class="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
   </div>
 
   <!-- FORM-->
@@ -164,7 +166,7 @@
         <!-- Multiple Radios (inline) -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="listingType">Type of Listing</label>
-          <div class="col-md-2">
+          <div class="col-md-2 radioInput">
             <label class="radio-inline" for="pre_insert_patient_positioned-0">
               <input type="radio" id="pre_insert_patient_positioned-0" value="For Sale" name="listing[listingType]">
                 For Sale
@@ -172,6 +174,10 @@
             <label class="radio-inline" for="pre_insert_patient_positioned-1">
               <input type="radio" id="pre_insert_patient_positioned-1" value="For Rent" name="listing[listingType]">
                 For Rent
+            </label>
+            <label class="radio-inline" for="pre_insert_patient_positioned-2">
+              <input type="radio" id="pre_insert_patient_positioned-2" value="Sold" name="listing[listingType]">
+                Sold
             </label>
           </div>
         </div>

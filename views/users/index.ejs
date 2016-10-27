@@ -1,18 +1,22 @@
 
 <!-- Jumbotron -->
   <div class="container">
-    <div class="jumbotron">
+    <div class="content-container">
+      <div class="blur">
+    <div class="jumbotron index">
 
 <div class="bo">
-      <h2 class="yay">Finding a home is...</h2>
+      <h1 class="yay">Finding a home is...</h1>
       <div class="nay">
-        <span1>
-          wonderful & exciting!<br />
-          really easy to find!<br />
+        <span1><b>
+          wonderfully exciting!<br />
+          really simple!<br />
           just a few clicks away!
-          </span1>
+          </b></span1>
       </div>
 </div>
+
+
 
       <%# <h1>A New Home</h1>
       <p>...is just a few clicks away</p>%>
@@ -85,8 +89,8 @@
                     </div>
                   </div>
                   <div class="col-md-2">
-                    <div id="searchButton" class="aa-single-advance-search">
-                      <input class="aa-search-btn" type="submit" value="Search">
+                    <div  class="aa-single-advance-search">
+                      <button class="aa-search-btn" type="button" name="button" ><a id="searchButton" href="/underconstruction" ">SEARCH</a></button>
                     </div>
                   </div>
                   <br><br><br>
@@ -159,9 +163,120 @@
 
     </div>
   </div>
+
+</div>
+</div>
 <!--/Jumbotron -->
 
-<!-- Latest property -->
+<!-- Popular properties -->
+<section id="aa-latest-property">
+  <div class="container">
+    <div class="aa-latest-property-area">
+
+      <div class="aa-title">
+        <h1>Popular Properties</h1>
+        <span></span>
+        <p>Click on them for more details...</p>
+        <hr>
+      </div>
+
+      <div class="aa-latest-properties-content">
+        <div class="row">
+
+          <div class="col-md-4">
+            <article class="aa-properties-item">
+              <a href="#" class="aa-properties-item-img popular">
+                <img src="/image/condo.jpg" alt="img">
+              </a>
+              <div class="aa-tag for-rent">
+              For Rent
+              </div>
+              <div class="aa-properties-item-content">
+                <div class="aa-properties-info">
+                  4 Beds</span>
+                  3 Baths</span>
+                  2112 sqft</span>
+                </div>
+                <div class="aa-properties-about">
+                  <h3><a href="#">Amber Avenue Condo</a></h3>
+                  <p>Recently renovated. Close to MRT station - 200m walk.</p>
+                </div>
+                <div class="aa-properties-detial">
+                  <span class="aa-price">
+                  $4500
+                </span>
+                  <a href="#" class="aa-secondary-btn">View Listing</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-4">
+            <article class="aa-properties-item">
+              <a href="#" class="aa-properties-item-img popular">
+                <img src="/image/terrace.jpg" alt="img">
+              </a>
+              <div class="aa-tag for-sale">
+              For Sale
+              </div>
+              <div class="aa-properties-item-content">
+                <div class="aa-properties-info">
+                  3 Beds</span>
+                  3 Baths</span>
+                  2112 sqft</span>
+                </div>
+                <div class="aa-properties-about">
+                  <h3><a href="#">Thomson Garden Terrace House</a></h3>
+                  <p>2 storey corner terrace. Located opposite Thomson Garden Park. Quiet neighbourhood.</p>
+                </div>
+                <div class="aa-properties-detial">
+                  <span class="aa-price">
+                  $2100000
+                </span>
+                  <a href="#" class="aa-secondary-btn">View Listing</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-4">
+            <article class="aa-properties-item">
+              <a href="#" class="aa-properties-item-img popular">
+                <img src="/image/hdb.jpg" alt="img">
+              </a>
+              <div class="aa-tag sold-out">
+              Sold
+              </div>
+              <div class="aa-properties-item-content">
+                <div class="aa-properties-info">
+                  3 Beds</span>
+                  2 Baths</span>
+                  1102 sqft</span>
+                </div>
+                <div class="aa-properties-about">
+                  <h3><a href="#">Bishan St 24</a></h3>
+                  <p>HDB 5-room flat. Highest floor. Unblock view of Bishan Park. Located close to bishan market.</p>
+                </div>
+                <div class="aa-properties-detial">
+                  <span class="aa-price">
+                  $670000
+                </span>
+                  <a href="#" class="aa-secondary-btn">View Listing</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <%# </ol>%>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / Popular properties -->
+
+<!-- All properties -->
 <section id="aa-latest-property">
   <div class="container">
     <div class="aa-latest-property-area">
@@ -170,12 +285,13 @@
         <h1>All Properties</h1>
         <span></span>
         <p>Click on them for more details...</p>
+        <hr>
       </div>
 
       <div class="aa-latest-properties-content">
         <div class="row">
 
-          <ol id="all-listing-list">
+          <%# <ol id="all-listing-list">%>
           <% allListings.forEach(function(listing) { %>
 
           <div class="col-md-4">
@@ -183,14 +299,23 @@
               <a href="#" class="aa-properties-item-img">
                 <img src="https://i.ytimg.com/vi/Xx6t0gmQ_Tw/maxresdefault.jpg" alt="img">
               </a>
-              <div class="aa-tag for-rent">
+          <% var tag %>
+          <% if (listing.listingType === "For Rent") { %>
+          <%    tag = 'for-rent' %>
+          <% } else if (listing.listingType === "For Sale") { %>
+          <%    tag = 'for-sale' %>
+          <% } else { %>
+              <% tag = 'for-soldout' %>
+          <% } %>
+
+              <div id=<%= tag%> class="aa-tag for-rent">
               <%= listing.listingType %>
               </div>
               <div class="aa-properties-item-content">
                 <div class="aa-properties-info">
-                  <span><%= listing.bedroom %> Beds</span>
-                  <span><%= listing.bathroom %> Baths</span>
-                  <span><%= listing.size %>sqft</span>
+                  <%= listing.bedroom %> Beds</span>
+                  <%= listing.bathroom %> Baths</span>
+                  <%= listing.size %> sqft</span>
                 </div>
                 <div class="aa-properties-about">
                   <h3><a href="#"><%= listing.title %></a></h3>
@@ -207,11 +332,11 @@
           </div>
 
           <% }) %>
-          </ol>
+          <%# </ol>%>
 
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- / Latest property -->
+<!-- / All properties -->

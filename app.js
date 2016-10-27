@@ -50,14 +50,24 @@ app.use(bodyParser.urlencoded({ // to parse form submitted data
   extended: true
 }))
 
-app.use(override(function(req, res){
-  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-    // look in urlencoded POST bodies and delete it
-    var method = req.body._method
-    delete req.body._method
-    return method
-  }
+// run methodOverride for all requests
+app.use(override(function (req, res) {
+ if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+   // look in urlencoded POST bodies and delete it
+   var method = req.body._method
+   delete req.body._method
+   return method
+ }
 }))
+
+// app.use(override(function (req, res) {
+//   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+//     // look in urlencoded POST bodies and delete it
+//     var method = req.body._method
+//     delete req.body._method
+//     return method
+//   }
+// }))
 
 require('./config/passport')(passport) // pass passport for configuration
 
@@ -66,6 +76,11 @@ require('./config/passport')(passport) // pass passport for configuration
 var listingsRoutes = require('./routes/listings')
 var usersRoutes = require('./routes/users')
 var listingsAPIRoutes = require('./routes/listings_api')
+
+app.use(function (req, res, next) {
+ res.locals.user = req.user
+ next()
+})
 
 app.use('/listings', listingsRoutes)
 app.use('/', usersRoutes)
