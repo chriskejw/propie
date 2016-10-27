@@ -1065,6 +1065,20 @@ text-align: center;
 /*==================
   FOOTER
 ====================*/
+.appGoggle {
+  height: 18%;
+  width: 30%;
+  margin-top: 2%;
+  margin-left: 0%;
+  border-radius: 7%;
+}
+
+.appApple {
+  height: 30%;
+  width: 33%;
+  margin-left: 1%;
+  margin-top: 2%;
+}
 
 .footer {
   width: 100%;
