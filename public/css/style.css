@@ -88,6 +88,7 @@ a#searchButton:hover {
   height: 500px;
   text-align: center;
   background-image: url("/image/headerImage.jpeg");
+  margin-bottom: 4%;
 }
 
 .bo {
@@ -1302,8 +1303,8 @@ text-align: center;
 ====================*/
 
 .about {
-  margin-top: 7%;
-  margin-bottom: 6%;
+  margin-top: 9%;
+  margin-bottom: 4%;
   text-align: center;
 }
 
