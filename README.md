@@ -1,5 +1,5 @@
 #Title
-propie | Singapore Property Listing
+- propie | Singapore Property Search and Listing
 
 #Objective
 
