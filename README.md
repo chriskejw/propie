@@ -8,7 +8,7 @@
 
 #Built With
 
-- html, css, javaScript, jQuery, nodeJS, express, mongoose, mongoDB
+- HTML, CSS, JavaScript, jQuery, nodeJS, Express, Mongoose, mongoDB
 
 #Inspiration
 
